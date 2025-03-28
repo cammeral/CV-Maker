@@ -1,0 +1,1960 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Maker Pro | منشئ السيرة الذاتية الاحترافي</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        :root {
+            --primary-color: #3a86ff;
+            --secondary-color: #2667cc;
+            --accent-color: #4cc9f0;
+            --dark-color: #2b2d42;
+            --light-color: #f8f9fa;
+            --success-color: #38b000;
+            --danger-color: #ef233c;
+            --warning-color: #ffbe0b;
+            --gold-color: #FFD700;
+            --border-radius: 10px;
+            --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+            color: var(--dark-color);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            margin-bottom: 3rem;
+            box-shadow: var(--box-shadow);
+            position: relative;
+            overflow: hidden;
+            animation: gradientBG 15s ease infinite;
+            background-size: 400% 400%;
+        }
+        
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: pulse 8s infinite alternate;
+        }
+        
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: -80px;
+            left: -30px;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            animation: pulse 12s infinite alternate;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.2; }
+            100% { transform: scale(1.2); opacity: 0.4; }
+        }
+        
+        .header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            animation: fadeInDown 1s both;
+        }
+        
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+            margin: 0 auto;
+            animation: fadeInUp 1s both 0.3s;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 30px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .section {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            animation: fadeIn 0.8s both;
+        }
+        
+        .section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary-color), var(--accent-color));
+            transition: var(--transition);
+        }
+        
+        .section:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        .section:hover::after {
+            width: 7px;
+        }
+        
+        .section-title {
+            color: var(--primary-color);
+            margin-bottom: 1.8rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 2px solid var(--accent-color);
+            font-size: 1.6rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            right: 0;
+            width: 50%;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: var(--transition);
+        }
+        
+        .section:hover .section-title::after {
+            width: 100%;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+            position: relative;
+            animation: fadeInRight 0.8s both;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.8rem;
+            font-weight: 500;
+            color: var(--secondary-color);
+            transition: var(--transition);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid #e0e0e0;
+            border-radius: var(--border-radius);
+            font-family: 'Tajawal', sans-serif;
+            transition: var(--transition);
+            font-size: 1rem;
+            background-color: #fafafa;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 3px rgba(74, 201, 240, 0.2);
+            background-color: white;
+        }
+        
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 1.8rem;
+            border: none;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: var(--transition);
+            font-family: 'Tajawal', sans-serif;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn:active {
+            transform: translateY(0);
+        }
+        
+        .btn-secondary {
+            background-color: #6c757d;
+        }
+        
+        .btn-secondary:hover {
+            background-color: #5a6268;
+        }
+        
+        .btn-success {
+            background-color: var(--success-color);
+        }
+        
+        .btn-warning {
+            background-color: var(--warning-color);
+            color: var(--dark-color);
+        }
+        
+        .btn-danger {
+            background-color: var(--danger-color);
+        }
+        
+        .btn-gold {
+            background-color: var(--gold-color);
+            color: #8B4513;
+            font-weight: bold;
+        }
+        
+        .btn-group {
+            margin-top: 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        /* أنماط القوالب المختلفة */
+        .cv-preview {
+            background-color: white;
+            min-height: 900px;
+            padding: 3rem;
+            position: relative;
+            border: 1px solid #eee;
+            transition: var(--transition);
+        }
+        
+        /* القالب الكلاسيكي */
+        .cv-preview.classic {
+            background-color: #fff;
+            border: 1px solid #ddd;
+        }
+        
+        .cv-preview.classic .cv-section-title {
+            color: #333;
+            border-bottom: 2px solid #666;
+        }
+        
+        /* القالب العصري */
+        .cv-preview.modern {
+            background-color: #f9f9f9;
+            border-left: 5px solid var(--primary-color);
+        }
+        
+        .cv-preview.modern .cv-section-title {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--accent-color);
+        }
+        
+        /* القالب المبدع */
+        .cv-preview.creative {
+            background: linear-gradient(135deg, #f8f9fa 0%, #fff 50%);
+            border: 1px solid #eee;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .cv-preview.creative .cv-section-title {
+            color: var(--secondary-color);
+            border-bottom: 2px dashed var(--accent-color);
+        }
+        
+        .cv-preview:hover {
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .cv-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid var(--accent-color);
+            gap: 3rem;
+            position: relative;
+        }
+        
+        .cv-header::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            right: 0;
+            width: 100px;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+        
+        .profile-image-container {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid var(--accent-color);
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+        
+        .profile-image-container:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .profile-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .profile-text {
+            flex: 1;
+        }
+        
+        .cv-name {
+            color: var(--primary-color);
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+        
+        .cv-job-title {
+            color: var(--secondary-color);
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+        
+        .cv-contact {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .cv-contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            color: #555;
+            font-size: 0.95rem;
+        }
+        
+        .cv-contact-item i {
+            color: var(--primary-color);
+            font-size: 1.1rem;
+        }
+        
+        .cv-section {
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+        
+        .cv-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -1.5rem;
+            width: 3px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary-color), var(--accent-color));
+            border-radius: 3px;
+        }
+        
+        .cv-section-title {
+            color: var(--secondary-color);
+            font-size: 1.5rem;
+            margin-bottom: 1.2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .cv-section-title i {
+            color: var(--primary-color);
+        }
+        
+        .cv-item {
+            margin-bottom: 1.5rem;
+            padding-right: 1rem;
+        }
+        
+        .cv-item-title {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--dark-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .cv-item-title i {
+            color: var(--accent-color);
+            font-size: 0.9rem;
+        }
+        
+        .cv-item-details {
+            color: #555;
+            line-height: 1.8;
+        }
+        
+        ul.cv-list {
+            list-style-type: none;
+            padding-right: 0;
+        }
+        
+        ul.cv-list li {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            padding: 0.8rem;
+            border-radius: 5px;
+            transition: var(--transition);
+        }
+        
+        ul.cv-list li:hover {
+            background-color: #f8f9fa;
+            transform: translateX(5px);
+        }
+        
+        .skill-name {
+            min-width: 150px;
+            display: inline-block;
+            font-weight: 500;
+        }
+        
+        .skill-stars {
+            display: flex;
+            gap: 5px;
+        }
+        
+        .star {
+            color: #e0e0e0;
+            font-size: 1.2rem;
+            position: relative;
+            transition: var(--transition);
+            text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+        
+        .star.filled {
+            color: var(--gold-color);
+            text-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
+        }
+        
+        .star.half {
+            position: relative;
+        }
+        
+        .star.half::before {
+            content: '\f005';
+            position: absolute;
+            right: 0;
+            width: 50%;
+            overflow: hidden;
+            color: var(--gold-color);
+            text-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
+        }
+        
+        .image-upload {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        
+        .image-upload-preview {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid var(--accent-color);
+            margin-bottom: 1.5rem;
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .image-upload-preview:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .image-upload-preview i {
+            font-size: 3.5rem;
+            color: #ccc;
+        }
+        
+        .image-upload-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .image-upload-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 0.8rem 1.5rem;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .image-upload-label:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .image-upload-input {
+            display: none;
+        }
+        
+        .skill-input-container {
+            background-color: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            margin-bottom: 1.5rem;
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+        
+        .skill-input {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .skill-input-name {
+            flex: 1;
+        }
+        
+        .skill-input-level {
+            width: 150px;
+        }
+        
+        .add-skill-btn {
+            background-color: var(--success-color);
+            margin-bottom: 1rem;
+        }
+        
+        .added-skills {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            margin-bottom: 2rem;
+        }
+        
+        .skill-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem 1rem;
+            margin-bottom: 0.8rem;
+            background-color: #f8f9fa;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+            border-left: 4px solid var(--accent-color);
+        }
+        
+        .skill-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .skill-item-content {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .skill-item-level {
+            display: flex;
+            gap: 3px;
+        }
+        
+        .empty-state {
+            text-align: center;
+            padding: 2rem;
+            color: #6c757d;
+            background-color: #f8f9fa;
+            border-radius: var(--border-radius);
+            margin-bottom: 2rem;
+        }
+        
+        .empty-state i {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #adb5bd;
+        }
+        
+        /* تأثيرات الحركة */
+        .animate-bounce {
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .animate-pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+        
+        .animate-shake {
+            animation: shake 0.5s;
+        }
+        
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            20%, 60% { transform: translateX(-5px); }
+            40%, 80% { transform: translateX(5px); }
+        }
+        
+        /* أدوات التحكم بالقوالب */
+        .template-controls {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .template-btn {
+            padding: 0.6rem 1.2rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .template-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .template-btn.classic {
+            background-color: #f1f1f1;
+            color: #333;
+        }
+        
+        .template-btn.modern {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .template-btn.creative {
+            background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+            color: white;
+        }
+        
+        /* أقسام إضافية */
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--accent-color), transparent);
+            margin: 2rem 0;
+            border: none;
+        }
+        
+        .language-item, .project-item, .certificate-item {
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background-color: #f9f9f9;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+            border-left: 4px solid var(--accent-color);
+        }
+        
+        .language-item:hover, .project-item:hover, .certificate-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .language-name, .project-name, .certificate-name {
+            font-weight: 600;
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .language-level {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .project-description, .certificate-issuer {
+            color: #555;
+            line-height: 1.7;
+        }
+        
+        .project-date, .certificate-date {
+            font-size: 0.9rem;
+            color: #777;
+            margin-top: 0.5rem;
+        }
+        
+        /* أمثلة جاهزة */
+        .examples-dropdown {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+        }
+        
+        .examples-btn {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .examples-btn:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        .examples-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 250px;
+            box-shadow: var(--box-shadow);
+            border-radius: var(--border-radius);
+            z-index: 1;
+            right: 0;
+            overflow: hidden;
+        }
+        
+        .examples-dropdown:hover .examples-content {
+            display: block;
+            animation: fadeIn 0.3s;
+        }
+        
+        .examples-content a {
+            color: var(--dark-color);
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            transition: var(--transition);
+            border-bottom: 1px solid #eee;
+        }
+        
+        .examples-content a:hover {
+            background-color: #f1f1f1;
+            transform: translateX(5px);
+        }
+        
+        /* تأثيرات دخول العناصر */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            
+            .cv-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 2rem;
+            }
+            
+            .profile-text {
+                width: 100%;
+            }
+            
+            .cv-contact {
+                justify-content: center;
+            }
+            
+            .cv-section::before {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .header p {
+                font-size: 1rem;
+            }
+            
+            .skill-input {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .skill-input-level {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header animate__animated animate__fadeIn">
+        <h1>منشئ السيرة الذاتية الاحترافي</h1>
+        <p>أنشئ سيرة ذاتية متميزة بخطوات بسيطة واحصل على الوظيفة التي تحلم بها</p>
+    </header>
+    
+    <div class="container">
+        <div class="section animate__animated animate__fadeInLeft">
+            <h2 class="section-title"><i class="fas fa-user-edit"></i> المعلومات الشخصية</h2>
+            
+            <div class="examples-dropdown">
+                <button class="examples-btn">
+                    <i class="fas fa-lightbulb"></i> أمثلة جاهزة
+                </button>
+                <div class="examples-content">
+                    <a href="#" onclick="loadExample('developer')"><i class="fas fa-code"></i> مبرمج ويب</a>
+                    <a href="#" onclick="loadExample('designer')"><i class="fas fa-paint-brush"></i> مصمم جرافيك</a>
+                    <a href="#" onclick="loadExample('engineer')"><i class="fas fa-cogs"></i> مهندس</a>
+                    <a href="#" onclick="loadExample('marketing')"><i class="fas fa-chart-line"></i> تسويق</a>
+                </div>
+            </div>
+            
+            <div class="template-controls">
+                <button class="template-btn classic" onclick="changeTemplate('classic')">
+                    <i class="fas fa-file-alt"></i> كلاسيكي
+                </button>
+                <button class="template-btn modern" onclick="changeTemplate('modern')">
+                    <i class="fas fa-file-code"></i> عصري
+                </button>
+                <button class="template-btn creative" onclick="changeTemplate('creative')">
+                    <i class="fas fa-magic"></i> مبدع
+                </button>
+            </div>
+            
+            <div class="image-upload">
+                <div class="image-upload-preview tooltip" id="imagePreview" title="انقر لتغيير الصورة">
+                    <i class="fas fa-user"></i>
+                </div>
+                <label for="imageUpload" class="image-upload-label">
+                    <i class="fas fa-upload"></i> اختر صورة شخصية
+                </label>
+                <input type="file" id="imageUpload" class="image-upload-input" accept="image/*">
+            </div>
+            
+            <div class="form-group">
+                <label for="name"><i class="fas fa-signature"></i> الاسم الكامل</label>
+                <input type="text" id="name" class="form-control" placeholder="أحمد محمد علي">
+            </div>
+            
+            <div class="form-group">
+                <label for="job-title"><i class="fas fa-briefcase"></i> المسمى الوظيفي</label>
+                <input type="text" id="job-title" class="form-control" placeholder="مطور ويب">
+            </div>
+            
+            <div class="form-group">
+                <label for="email"><i class="fas fa-envelope"></i> البريد الإلكتروني</label>
+                <input type="email" id="email" class="form-control" placeholder="example@domain.com">
+            </div>
+            
+            <div class="form-group">
+                <label for="phone"><i class="fas fa-phone"></i> رقم الهاتف</label>
+                <input type="tel" id="phone" class="form-control" placeholder="05XXXXXXXX">
+            </div>
+            
+            <div class="form-group">
+                <label for="address"><i class="fas fa-map-marker-alt"></i> العنوان</label>
+                <input type="text" id="address" class="form-control" placeholder="المدينة، الدولة">
+            </div>
+            
+            <div class="form-group">
+                <label for="about"><i class="fas fa-info-circle"></i> نبذة عنك</label>
+                <textarea id="about" class="form-control" placeholder="أكتب نبذة مختصرة عنك وخبراتك"></textarea>
+            </div>
+            
+            <h2 class="section-title"><i class="fas fa-building"></i> الخبرات العملية</h2>
+            
+            <div class="form-group">
+                <label for="experience"><i class="fas fa-tasks"></i> الخبرات (افصل بين كل خبرة بفاصلة)</label>
+                <textarea id="experience" class="form-control" placeholder="مطور ويب في شركة XYZ (2020-2023), مصمم جرافيك في شركة ABC (2018-2020)"></textarea>
+            </div>
+            
+            <h2 class="section-title"><i class="fas fa-language"></i> اللغات</h2>
+            
+            <div id="languages-container">
+                <div class="form-group">
+                    <div class="language-input">
+                        <input type="text" class="form-control" id="languageName" placeholder="اسم اللغة (مثال: الإنجليزية)">
+                        <select class="form-control" id="languageLevel" style="margin-top: 10px;">
+                            <option value="A1">مبتدئ (A1)</option>
+                            <option value="A2">مبتدئ متقدم (A2)</option>
+                            <option value="B1">متوسط (B1)</option>
+                            <option value="B2">متوسط متقدم (B2)</option>
+                            <option value="C1">متقدم (C1)</option>
+                            <option value="C2">إتقان (C2)</option>
+                        </select>
+                        <button class="btn btn-success" onclick="addLanguage()" style="margin-top: 10px;">
+                            <i class="fas fa-plus"></i> إضافة لغة
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="added-languages" class="added-skills">
+                <div class="empty-state">
+                    <i class="fas fa-language animate-float"></i>
+                    <h3>لا توجد لغات مضافة</h3>
+                    <p>قم بإضافة اللغات التي تتقنها</p>
+                </div>
+            </div>
+            
+            <h2 class="section-title"><i class="fas fa-project-diagram"></i> المشاريع</h2>
+            
+            <div id="projects-container">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="projectName" placeholder="اسم المشروع">
+                    <textarea class="form-control" id="projectDescription" placeholder="وصف المشروع" style="margin-top: 10px;"></textarea>
+                    <input type="text" class="form-control" id="projectDate" placeholder="تاريخ المشروع (مثال: 2022-2023)" style="margin-top: 10px;">
+                    <button class="btn btn-success" onclick="addProject()" style="margin-top: 10px;">
+                        <i class="fas fa-plus"></i> إضافة مشروع
+                    </button>
+                </div>
+            </div>
+            
+            <div id="added-projects" class="added-skills">
+                <div class="empty-state">
+                    <i class="fas fa-project-diagram animate-float"></i>
+                    <h3>لا توجد مشاريع مضافة</h3>
+                    <p>قم بإضافة مشاريعك الشخصية أو العملية</p>
+                </div>
+            </div>
+            
+            <h2 class="section-title"><i class="fas fa-certificate"></i> الشهادات</h2>
+            
+            <div id="certificates-container">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="certificateName" placeholder="اسم الشهادة">
+                    <input type="text" class="form-control" id="certificateIssuer" placeholder="اسم الجهة المانحة" style="margin-top: 10px;">
+                    <input type="text" class="form-control" id="certificateDate" placeholder="تاريخ الحصول عليها" style="margin-top: 10px;">
+                    <button class="btn btn-success" onclick="addCertificate()" style="margin-top: 10px;">
+                        <i class="fas fa-plus"></i> إضافة شهادة
+                    </button>
+                </div>
+            </div>
+            
+            <div id="added-certificates" class="added-skills">
+                <div class="empty-state">
+                    <i class="fas fa-certificate animate-float"></i>
+                    <h3>لا توجد شهادات مضافة</h3>
+                    <p>قم بإضافة شهاداتك ودوراتك التدريبية</p>
+                </div>
+            </div>
+            
+            <h2 class="section-title"><i class="fas fa-star"></i> المهارات</h2>
+            
+            <div class="skill-input-container">
+                <div class="skill-input">
+                    <input type="text" class="form-control skill-input-name" placeholder="اسم المهارة (مثال: HTML)">
+                    <select class="form-control skill-input-level">
+                        <option value="1">★☆☆☆☆ (مبتدئ)</option>
+                        <option value="1.5">★½☆☆☆</option>
+                        <option value="2">★★☆☆☆ (متوسط)</option>
+                        <option value="2.5">★★½☆☆</option>
+                        <option value="3">★★★☆☆ (جيد)</option>
+                        <option value="3.5">★★★½☆</option>
+                        <option value="4">★★★★☆ (متقدم)</option>
+                        <option value="4.5">★★★★½</option>
+                        <option value="5">★★★★★ (خبير)</option>
+                    </select>
+                    <button class="btn add-skill-btn" onclick="addSkill()"><i class="fas fa-plus"></i> إضافة</button>
+                </div>
+            </div>
+            
+            <div id="added-skills" class="added-skills">
+                <div class="empty-state">
+                    <i class="fas fa-star animate-bounce"></i>
+                    <h3>لا توجد مهارات مضافة</h3>
+                    <p>قم بإضافة مهاراتك لتظهر هنا</p>
+                </div>
+            </div>
+            
+            <div class="btn-group">
+                <button class="btn btn-success" onclick="updateCV()"><i class="fas fa-eye"></i> معاينة السيرة الذاتية</button>
+                <button class="btn btn-danger" onclick="resetForm()"><i class="fas fa-trash"></i> مسح النموذج</button>
+                <button class="btn btn-warning" onclick="downloadPDF()"><i class="fas fa-file-pdf"></i> تحميل PDF</button>
+                <button class="btn btn-gold" onclick="saveAsImage()"><i class="fas fa-camera"></i> حفظ كصورة</button>
+            </div>
+        </div>
+        
+        <div class="section animate__animated animate__fadeInRight">
+            <h2 class="section-title"><i class="fas fa-file-alt"></i> معاينة السيرة الذاتية</h2>
+            <div class="cv-preview modern" id="cv-preview">
+                <div class="cv-header">
+                    <div class="profile-image-container" id="cvProfileImage">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="profile-text">
+                        <h1 class="cv-name">الاسم الكامل</h1>
+                        <div class="cv-job-title">المسمى الوظيفي</div>
+                        <div class="cv-contact">
+                            <span class="cv-contact-item"><i class="fas fa-envelope"></i> example@domain.com</span>
+                            <span class="cv-contact-item"><i class="fas fa-phone"></i> 05XXXXXXXX</span>
+                            <span class="cv-contact-item"><i class="fas fa-map-marker-alt"></i> المدينة، الدولة</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="cv-section">
+                    <h3 class="cv-section-title"><i class="fas fa-user-tie"></i> نبذة عني</h3>
+                    <p class="cv-item-details">هنا سيظهر ملخص عنك وخبراتك بشكل مختصر.</p>
+                </div>
+                
+                <div class="cv-section">
+                    <h3 class="cv-section-title"><i class="fas fa-briefcase"></i> الخبرات العملية</h3>
+                    <ul class="cv-list" id="cv-experience">
+                        <li class="empty-state" style="text-align: right; padding: 1rem;">
+                            <i class="fas fa-briefcase"></i>
+                            <p>لا توجد خبرات مضافة بعد</p>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="cv-section">
+                    <h3 class="cv-section-title"><i class="fas fa-language"></i> اللغات</h3>
+                    <div id="cv-languages">
+                        <div class="empty-state" style="text-align: right; padding: 1rem;">
+                            <i class="fas fa-language"></i>
+                            <p>لا توجد لغات مضافة بعد</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="cv-section">
+                    <h3 class="cv-section-title"><i class="fas fa-project-diagram"></i> المشاريع</h3>
+                    <div id="cv-projects">
+                        <div class="empty-state" style="text-align: right; padding: 1rem;">
+                            <i class="fas fa-project-diagram"></i>
+                            <p>لا توجد مشاريع مضافة بعد</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="cv-section">
+                    <h3 class="cv-section-title"><i class="fas fa-certificate"></i> الشهادات</h3>
+                    <div id="cv-certificates">
+                        <div class="empty-state" style="text-align: right; padding: 1rem;">
+                            <i class="fas fa-certificate"></i>
+                            <p>لا توجد شهادات مضافة بعد</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="cv-section">
+                    <h3 class="cv-section-title"><i class="fas fa-star"></i> المهارات</h3>
+                    <ul class="cv-list" id="cv-skills">
+                        <li class="empty-state" style="text-align: right; padding: 1rem;">
+                            <i class="fas fa-star"></i>
+                            <p>لا توجد مهارات مضافة بعد</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // تخزين البيانات
+        let skills = [];
+        let languages = [];
+        let projects = [];
+        let certificates = [];
+        let currentTemplate = 'modern';
+        
+        // تحميل الصورة الشخصية
+        document.getElementById('imageUpload').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    // تحديث معاينة الصورة في النموذج
+                    const preview = document.getElementById('imagePreview');
+                    preview.innerHTML = `<img src="${e.target.result}" alt="الصورة الشخصية">`;
+                    
+                    // تحديث الصورة في معاينة السيرة الذاتية
+                    const cvPreview = document.getElementById('cvProfileImage');
+                    cvPreview.innerHTML = `<img src="${e.target.result}" alt="الصورة الشخصية">`;
+                    
+                    // إضافة تأثير عند التحميل
+                    cvPreview.classList.add('animate__animated', 'animate__pulse');
+                    setTimeout(() => {
+                        cvPreview.classList.remove('animate__animated', 'animate__pulse');
+                    }, 1000);
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+        
+        // تغيير القالب
+        function changeTemplate(template) {
+            currentTemplate = template;
+            const cvPreview = document.getElementById('cv-preview');
+            cvPreview.className = `cv-preview ${template}`;
+            
+            // إضافة تأثير
+            cvPreview.classList.add('animate__animated', 'animate__flipInX');
+            setTimeout(() => {
+                cvPreview.classList.remove('animate__animated', 'animate__flipInX');
+            }, 1000);
+            
+            showAlert(`تم تغيير القالب إلى ${getTemplateName(template)}`, 'success');
+        }
+        
+        function getTemplateName(template) {
+            const names = {
+                'classic': 'كلاسيكي',
+                'modern': 'عصري',
+                'creative': 'مبدع'
+            };
+            return names[template] || template;
+        }
+        
+        // إضافة مهارة جديدة
+        function addSkill() {
+            const skillInputs = document.querySelectorAll('.skill-input');
+            const lastSkillInput = skillInputs[skillInputs.length - 1];
+            
+            const skillName = lastSkillInput.querySelector('.skill-input-name').value.trim();
+            const skillLevel = lastSkillInput.querySelector('.skill-input-level').value;
+            
+            if (!skillName) {
+                showAlert('الرجاء إدخال اسم المهارة', 'danger');
+                return;
+            }
+            
+            // إضافة المهارة إلى المصفوفة
+            skills.push({
+                name: skillName,
+                level: parseFloat(skillLevel)
+            });
+            
+            // تحديث عرض المهارات المضافة
+            updateSkillsList();
+            
+            // مسح حقول الإدخال
+            lastSkillInput.querySelector('.skill-input-name').value = '';
+            lastSkillInput.querySelector('.skill-input-level').value = '1';
+            
+            // إظهار رسالة نجاح
+            showAlert('تم إضافة المهارة بنجاح', 'success');
+        }
+        
+        // إضافة لغة جديدة
+        function addLanguage() {
+            const languageName = document.getElementById('languageName').value.trim();
+            const languageLevel = document.getElementById('languageLevel').value;
+            
+            if (!languageName) {
+                showAlert('الرجاء إدخال اسم اللغة', 'danger');
+                return;
+            }
+            
+            languages.push({
+                name: languageName,
+                level: languageLevel
+            });
+            
+            updateLanguagesList();
+            
+            // مسح حقول الإدخال
+            document.getElementById('languageName').value = '';
+            document.getElementById('languageLevel').value = 'A1';
+            
+            showAlert('تم إضافة اللغة بنجاح', 'success');
+        }
+        
+        // إضافة مشروع جديد
+        function addProject() {
+            const projectName = document.getElementById('projectName').value.trim();
+            const projectDescription = document.getElementById('projectDescription').value.trim();
+            const projectDate = document.getElementById('projectDate').value.trim();
+            
+            if (!projectName) {
+                showAlert('الرجاء إدخال اسم المشروع', 'danger');
+                return;
+            }
+            
+            projects.push({
+                name: projectName,
+                description: projectDescription,
+                date: projectDate
+            });
+            
+            updateProjectsList();
+            
+            // مسح حقول الإدخال
+            document.getElementById('projectName').value = '';
+            document.getElementById('projectDescription').value = '';
+            document.getElementById('projectDate').value = '';
+            
+            showAlert('تم إضافة المشروع بنجاح', 'success');
+        }
+        
+        // إضافة شهادة جديدة
+        function addCertificate() {
+            const certificateName = document.getElementById('certificateName').value.trim();
+            const certificateIssuer = document.getElementById('certificateIssuer').value.trim();
+            const certificateDate = document.getElementById('certificateDate').value.trim();
+            
+            if (!certificateName) {
+                showAlert('الرجاء إدخال اسم الشهادة', 'danger');
+                return;
+            }
+            
+            certificates.push({
+                name: certificateName,
+                issuer: certificateIssuer,
+                date: certificateDate
+            });
+            
+            updateCertificatesList();
+            
+            // مسح حقول الإدخال
+            document.getElementById('certificateName').value = '';
+            document.getElementById('certificateIssuer').value = '';
+            document.getElementById('certificateDate').value = '';
+            
+            showAlert('تم إضافة الشهادة بنجاح', 'success');
+        }
+        
+        // تحديث قائمة المهارات المضافة
+        function updateSkillsList() {
+            const addedSkillsDiv = document.getElementById('added-skills');
+            
+            if (skills.length === 0) {
+                addedSkillsDiv.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fas fa-star animate-bounce"></i>
+                        <h3>لا توجد مهارات مضافة</h3>
+                        <p>قم بإضافة مهاراتك لتظهر هنا</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            addedSkillsDiv.innerHTML = '';
+            
+            const skillsTitle = document.createElement('h3');
+            skillsTitle.textContent = 'المهارات المضافة:';
+            skillsTitle.style.marginBottom = '15px';
+            skillsTitle.style.color = 'var(--secondary-color)';
+            skillsTitle.style.fontSize = '1.2rem';
+            addedSkillsDiv.appendChild(skillsTitle);
+            
+            skills.forEach((skill, index) => {
+                const skillDiv = document.createElement('div');
+                skillDiv.className = 'skill-item';
+                
+                const skillContent = document.createElement('div');
+                skillContent.className = 'skill-item-content';
+                
+                const skillText = document.createElement('span');
+                skillText.textContent = skill.name;
+                skillText.style.fontWeight = '500';
+                
+                const skillLevel = document.createElement('div');
+                skillLevel.className = 'skill-item-level';
+                skillLevel.innerHTML = getStarIcons(skill.level);
+                
+                skillContent.appendChild(skillText);
+                skillContent.appendChild(skillLevel);
+                
+                const deleteBtn = document.createElement('button');
+                deleteBtn.innerHTML = '<i class="fas fa-trash"></i>';
+                deleteBtn.className = 'btn btn-danger';
+                deleteBtn.style.padding = '0.5rem';
+                deleteBtn.style.fontSize = '0.9rem';
+                deleteBtn.onclick = function() {
+                    skills.splice(index, 1);
+                    updateSkillsList();
+                    showAlert('تم حذف المهارة', 'warning');
+                };
+                
+                skillDiv.appendChild(skillContent);
+                skillDiv.appendChild(deleteBtn);
+                addedSkillsDiv.appendChild(skillDiv);
+            });
+        }
+        
+        // تحديث قائمة اللغات المضافة
+        function updateLanguagesList() {
+            const addedLanguagesDiv = document.getElementById('added-languages');
+            
+            if (languages.length === 0) {
+                addedLanguagesDiv.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fas fa-language animate-float"></i>
+                        <h3>لا توجد لغات مضافة</h3>
+                        <p>قم بإضافة اللغات التي تتقنها</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            addedLanguagesDiv.innerHTML = '';
+            
+            const languagesTitle = document.createElement('h3');
+            languagesTitle.textContent = 'اللغات المضافة:';
+            languagesTitle.style.marginBottom = '15px';
+            languagesTitle.style.color = 'var(--secondary-color)';
+            languagesTitle.style.fontSize = '1.2rem';
+            addedLanguagesDiv.appendChild(languagesTitle);
+            
+            languages.forEach((language, index) => {
+                const languageDiv = document.createElement('div');
+                languageDiv.className = 'language-item';
+                
+                const languageName = document.createElement('div');
+                languageName.className = 'language-name';
+                languageName.innerHTML = `<i class="fas fa-language"></i> ${language.name}`;
+                
+                const languageLevel = document.createElement('div');
+                languageLevel.className = 'language-level';
+                languageLevel.innerHTML = `
+                    <span>مستوى الإتقان:</span>
+                    <span style="font-weight:500;">${language.level}</span>
+                `;
+                
+                const deleteBtn = document.createElement('button');
+                deleteBtn.innerHTML = '<i class="fas fa-trash"></i> حذف';
+                deleteBtn.className = 'btn btn-danger';
+                deleteBtn.style.marginTop = '10px';
+                deleteBtn.style.fontSize = '0.9rem';
+                deleteBtn.onclick = function() {
+                    languages.splice(index, 1);
+                    updateLanguagesList();
+                    showAlert('تم حذف اللغة', 'warning');
+                };
+                
+                languageDiv.appendChild(languageName);
+                languageDiv.appendChild(languageLevel);
+                languageDiv.appendChild(deleteBtn);
+                addedLanguagesDiv.appendChild(languageDiv);
+            });
+        }
+        
+        // تحديث قائمة المشاريع المضافة
+        function updateProjectsList() {
+            const addedProjectsDiv = document.getElementById('added-projects');
+            
+            if (projects.length === 0) {
+                addedProjectsDiv.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fas fa-project-diagram animate-float"></i>
+                        <h3>لا توجد مشاريع مضافة</h3>
+                        <p>قم بإضافة مشاريعك الشخصية أو العملية</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            addedProjectsDiv.innerHTML = '';
+            
+            const projectsTitle = document.createElement('h3');
+            projectsTitle.textContent = 'المشاريع المضافة:';
+            projectsTitle.style.marginBottom = '15px';
+            projectsTitle.style.color = 'var(--secondary-color)';
+            projectsTitle.style.fontSize = '1.2rem';
+            addedProjectsDiv.appendChild(projectsTitle);
+            
+            projects.forEach((project, index) => {
+                const projectDiv = document.createElement('div');
+                projectDiv.className = 'project-item';
+                
+                const projectName = document.createElement('div');
+                projectName.className = 'project-name';
+                projectName.innerHTML = `<i class="fas fa-project-diagram"></i> ${project.name}`;
+                
+                const projectDesc = document.createElement('div');
+                projectDesc.className = 'project-description';
+                projectDesc.textContent = project.description || 'لا يوجد وصف';
+                
+                const projectDate = document.createElement('div');
+                projectDate.className = 'project-date';
+                projectDate.innerHTML = `<i class="far fa-calendar-alt"></i> ${project.date || 'غير محدد'}`;
+                
+                const deleteBtn = document.createElement('button');
+                deleteBtn.innerHTML = '<i class="fas fa-trash"></i> حذف';
+                deleteBtn.className = 'btn btn-danger';
+                deleteBtn.style.marginTop = '10px';
+                deleteBtn.style.fontSize = '0.9rem';
+                deleteBtn.onclick = function() {
+                    projects.splice(index, 1);
+                    updateProjectsList();
+                    showAlert('تم حذف المشروع', 'warning');
+                };
+                
+                projectDiv.appendChild(projectName);
+                projectDiv.appendChild(projectDesc);
+                projectDiv.appendChild(projectDate);
+                projectDiv.appendChild(deleteBtn);
+                addedProjectsDiv.appendChild(projectDiv);
+            });
+        }
+        
+        // تحديث قائمة الشهادات المضافة
+        function updateCertificatesList() {
+            const addedCertificatesDiv = document.getElementById('added-certificates');
+            
+            if (certificates.length === 0) {
+                addedCertificatesDiv.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fas fa-certificate animate-float"></i>
+                        <h3>لا توجد شهادات مضافة</h3>
+                        <p>قم بإضافة شهاداتك ودوراتك التدريبية</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            addedCertificatesDiv.innerHTML = '';
+            
+            const certificatesTitle = document.createElement('h3');
+            certificatesTitle.textContent = 'الشهادات المضافة:';
+            certificatesTitle.style.marginBottom = '15px';
+            certificatesTitle.style.color = 'var(--secondary-color)';
+            certificatesTitle.style.fontSize = '1.2rem';
+            addedCertificatesDiv.appendChild(certificatesTitle);
+            
+            certificates.forEach((certificate, index) => {
+                const certificateDiv = document.createElement('div');
+                certificateDiv.className = 'certificate-item';
+                
+                const certificateName = document.createElement('div');
+                certificateName.className = 'certificate-name';
+                certificateName.innerHTML = `<i class="fas fa-certificate"></i> ${certificate.name}`;
+                
+                const certificateIssuer = document.createElement('div');
+                certificateIssuer.className = 'certificate-issuer';
+                certificateIssuer.textContent = `من: ${certificate.issuer || 'غير محدد'}`;
+                
+                const certificateDate = document.createElement('div');
+                certificateDate.className = 'certificate-date';
+                certificateDate.innerHTML = `<i class="far fa-calendar-alt"></i> ${certificate.date || 'غير محدد'}`;
+                
+                const deleteBtn = document.createElement('button');
+                deleteBtn.innerHTML = '<i class="fas fa-trash"></i> حذف';
+                deleteBtn.className = 'btn btn-danger';
+                deleteBtn.style.marginTop = '10px';
+                deleteBtn.style.fontSize = '0.9rem';
+                deleteBtn.onclick = function() {
+                    certificates.splice(index, 1);
+                    updateCertificatesList();
+                    showAlert('تم حذف الشهادة', 'warning');
+                };
+                
+                certificateDiv.appendChild(certificateName);
+                certificateDiv.appendChild(certificateIssuer);
+                certificateDiv.appendChild(certificateDate);
+                certificateDiv.appendChild(deleteBtn);
+                addedCertificatesDiv.appendChild(certificateDiv);
+            });
+        }
+        
+        // تحويل مستوى المهارة إلى أيقونات نجوم
+        function getStarIcons(level) {
+            const fullStars = Math.floor(level);
+            const hasHalfStar = level % 1 >= 0.5;
+            
+            let stars = '';
+            
+            for (let i = 1; i <= 5; i++) {
+                if (i <= fullStars) {
+                    stars += '<i class="fas fa-star filled"></i>';
+                } else if (i === fullStars + 1 && hasHalfStar) {
+                    stars += '<i class="fas fa-star-half-alt filled"></i>';
+                } else {
+                    stars += '<i class="far fa-star"></i>';
+                }
+            }
+            
+            return stars;
+        }
+        
+        // عرض رسالة للمستخدم
+        function showAlert(message, type) {
+            const alert = document.createElement('div');
+            alert.className = `alert-${type}`;
+            alert.style.position = 'fixed';
+            alert.style.top = '20px';
+            alert.style.right = '20px';
+            alert.style.padding = '1rem 1.5rem';
+            alert.style.borderRadius = 'var(--border-radius)';
+            alert.style.backgroundColor = type === 'success' ? 'var(--success-color)' : 
+                                         type === 'danger' ? 'var(--danger-color)' : 'var(--warning-color)';
+            alert.style.color = 'white';
+            alert.style.boxShadow = 'var(--box-shadow)';
+            alert.style.zIndex = '1000';
+            alert.style.display = 'flex';
+            alert.style.alignItems = 'center';
+            alert.style.gap = '10px';
+            alert.style.animation = 'fadeIn 0.3s';
+            
+            const icon = type === 'success' ? 'fa-check-circle' : 
+                         type === 'danger' ? 'fa-exclamation-circle' : 'fa-info-circle';
+            
+            alert.innerHTML = `
+                <i class="fas ${icon}"></i>
+                <span>${message}</span>
+            `;
+            
+            document.body.appendChild(alert);
+            
+            setTimeout(() => {
+                alert.style.animation = 'fadeOut 0.3s';
+                setTimeout(() => {
+                    alert.remove();
+                }, 300);
+            }, 3000);
+        }
+        
+        // تحديث معاينة السيرة الذاتية
+        function updateCV() {
+            // الحصول على القيم من النموذج
+            const name = document.getElementById('name').value || 'الاسم الكامل';
+            const jobTitle = document.getElementById('job-title').value || 'المسمى الوظيفي';
+            const email = document.getElementById('email').value || 'example@domain.com';
+            const phone = document.getElementById('phone').value || '05XXXXXXXX';
+            const address = document.getElementById('address').value || 'المدينة، الدولة';
+            const about = document.getElementById('about').value || 'هنا سيظهر ملخص عنك وخبراتك بشكل مختصر.';
+            const experience = document.getElementById('experience').value;
+            
+            // تحديث معاينة السيرة الذاتية
+            document.querySelector('#cv-preview .cv-name').textContent = name;
+            document.querySelector('#cv-preview .cv-job-title').textContent = jobTitle;
+            
+            // تحديث معلومات الاتصال
+            const contactItems = [];
+            if (email) contactItems.push(`<span class="cv-contact-item"><i class="fas fa-envelope"></i> ${email}</span>`);
+            if (phone) contactItems.push(`<span class="cv-contact-item"><i class="fas fa-phone"></i> ${phone}</span>`);
+            if (address) contactItems.push(`<span class="cv-contact-item"><i class="fas fa-map-marker-alt"></i> ${address}</span>`);
+            
+            document.querySelector('#cv-preview .cv-contact').innerHTML = contactItems.join('');
+            
+            // تحديث النبذة
+            document.querySelector('#cv-preview .cv-item-details').textContent = about;
+            
+            // تحديث الخبرات
+            const experienceList = experience ? experience.split(',').filter(exp => exp.trim()) : [];
+            const experienceContainer = document.getElementById('cv-experience');
+            
+            if (experienceList.length > 0) {
+                experienceContainer.innerHTML = experienceList.map(exp => `
+                    <li>
+                        <div class="cv-item-title">
+                            <i class="fas fa-circle" style="font-size: 0.5rem;"></i>
+                            ${exp.trim()}
+                        </div>
+                    </li>
+                `).join('');
+            } else {
+                experienceContainer.innerHTML = `
+                    <li class="empty-state" style="text-align: right; padding: 1rem;">
+                        <i class="fas fa-briefcase"></i>
+                        <p>لا توجد خبرات مضافة بعد</p>
+                    </li>
+                `;
+            }
+            
+            // تحديث اللغات
+            const languagesContainer = document.getElementById('cv-languages');
+            
+            if (languages.length > 0) {
+                languagesContainer.innerHTML = languages.map(lang => `
+                    <div class="language-item">
+                        <div class="language-name">
+                            <i class="fas fa-language"></i> ${lang.name}
+                        </div>
+                        <div class="language-level">
+                            <span>مستوى الإتقان:</span>
+                            <span style="font-weight:500;">${lang.level}</span>
+                        </div>
+                    </div>
+                `).join('');
+            } else {
+                languagesContainer.innerHTML = `
+                    <div class="empty-state" style="text-align: right; padding: 1rem;">
+                        <i class="fas fa-language"></i>
+                        <p>لا توجد لغات مضافة بعد</p>
+                    </div>
+                `;
+            }
+            
+            // تحديث المشاريع
+            const projectsContainer = document.getElementById('cv-projects');
+            
+            if (projects.length > 0) {
+                projectsContainer.innerHTML = projects.map(project => `
+                    <div class="project-item">
+                        <div class="project-name">
+                            <i class="fas fa-project-diagram"></i> ${project.name}
+                        </div>
+                        <div class="project-description">
+                            ${project.description || 'لا يوجد وصف'}
+                        </div>
+                        <div class="project-date">
+                            <i class="far fa-calendar-alt"></i> ${project.date || 'غير محدد'}
+                        </div>
+                    </div>
+                `).join('');
+            } else {
+                projectsContainer.innerHTML = `
+                    <div class="empty-state" style="text-align: right; padding: 1rem;">
+                        <i class="fas fa-project-diagram"></i>
+                        <p>لا توجد مشاريع مضافة بعد</p>
+                    </div>
+                `;
+            }
+            
+            // تحديث الشهادات
+            const certificatesContainer = document.getElementById('cv-certificates');
+            
+            if (certificates.length > 0) {
+                certificatesContainer.innerHTML = certificates.map(cert => `
+                    <div class="certificate-item">
+                        <div class="certificate-name">
+                            <i class="fas fa-certificate"></i> ${cert.name}
+                        </div>
+                        <div class="certificate-issuer">
+                            من: ${cert.issuer || 'غير محدد'}
+                        </div>
+                        <div class="certificate-date">
+                            <i class="far fa-calendar-alt"></i> ${cert.date || 'غير محدد'}
+                        </div>
+                    </div>
+                `).join('');
+            } else {
+                certificatesContainer.innerHTML = `
+                    <div class="empty-state" style="text-align: right; padding: 1rem;">
+                        <i class="fas fa-certificate"></i>
+                        <p>لا توجد شهادات مضافة بعد</p>
+                    </div>
+                `;
+            }
+            
+            // تحديث المهارات
+            const skillsContainer = document.getElementById('cv-skills');
+            
+            if (skills.length > 0) {
+                skillsContainer.innerHTML = skills.map(skill => `
+                    <li>
+                        <span class="skill-name">${skill.name}</span>
+                        <div class="skill-stars">
+                            ${getStarIcons(skill.level)}
+                        </div>
+                    </li>
+                `).join('');
+            } else {
+                skillsContainer.innerHTML = `
+                    <li class="empty-state" style="text-align: right; padding: 1rem;">
+                        <i class="fas fa-star"></i>
+                        <p>لا توجد مهارات مضافة بعد</p>
+                    </li>
+                `;
+            }
+            
+            // إضافة تأثير عند التحديث
+            const cvPreview = document.getElementById('cv-preview');
+            cvPreview.classList.add('animate__animated', 'animate__pulse');
+            setTimeout(() => {
+                cvPreview.classList.remove('animate__animated', 'animate__pulse');
+            }, 1000);
+            
+            showAlert('تم تحديث السيرة الذاتية بنجاح', 'success');
+        }
+        
+        // مسح النموذج
+        function resetForm() {
+            if(confirm('هل أنت متأكد من أنك تريد مسح جميع البيانات؟ سيتم حذف جميع المعلومات التي أدخلتها.')) {
+                // مسح حقول النموذج
+                document.querySelectorAll('.form-control').forEach(input => {
+                    input.value = '';
+                });
+                
+                // مسح الصورة
+                document.getElementById('imagePreview').innerHTML = '<i class="fas fa-user"></i>';
+                document.getElementById('cvProfileImage').innerHTML = '<i class="fas fa-user"></i>';
+                document.getElementById('imageUpload').value = '';
+                
+                // مسح جميع البيانات
+                skills = [];
+                languages = [];
+                projects = [];
+                certificates = [];
+                
+                updateSkillsList();
+                updateLanguagesList();
+                updateProjectsList();
+                updateCertificatesList();
+                
+                // تحديث المعاينة
+                updateCV();
+                
+                showAlert('تم مسح النموذج بنجاح', 'warning');
+            }
+        }
+        
+        // تحميل PDF (وظيفة وهمية للتوضيح)
+        function downloadPDF() {
+            showAlert('جاري تحضير ملف PDF...', 'success');
+            
+            // في التطبيق الحقيقي، استخدم مكتبة مثل html2pdf.js
+            setTimeout(() => {
+                showAlert('في التطبيق الحقيقي، سيتم تنزيل ملف PDF هنا', 'warning');
+            }, 1500);
+        }
+        
+        // حفظ كصورة
+        function saveAsImage() {
+            showAlert('جاري تحضير الصورة...', 'success');
+            
+            // في التطبيق الحقيقي، استخدم مكتبة مثل dom-to-image أو html2canvas
+            setTimeout(() => {
+                showAlert('في التطبيق الحقيقي، سيتم حفظ السيرة الذاتية كصورة', 'warning');
+            }, 1500);
+        }
+        
+        // تحميل أمثلة جاهزة
+        function loadExample(type) {
+            const examples = {
+                'developer': {
+                    name: 'أحمد محمد',
+                    jobTitle: 'مطور ويب متكامل',
+                    email: 'ahmed@example.com',
+                    phone: '0512345678',
+                    address: 'الرياض، المملكة العربية السعودية',
+                    about: 'مطور ويب بخبرة 5 سنوات في تطوير تطبيقات الويب باستخدام تقنيات حديثة مثل React.js وNode.js. متخصص في إنشاء واجهات مستخدم تفاعلية وتجارب مستخدم متميزة.',
+                    experience: 'مطور ويب في شركة التقنية المتقدمة (2020-2023), مصمم واجهات في شركة الإبداع الرقمي (2018-2020)',
+                    skills: [
+                        {name: 'HTML/CSS', level: 5},
+                        {name: 'JavaScript', level: 4.5},
+                        {name: 'React.js', level: 4},
+                        {name: 'Node.js', level: 3.5},
+                        {name: 'MongoDB', level: 3}
+                    ],
+                    languages: [
+                        {name: 'العربية', level: 'C2'},
+                        {name: 'الإنجليزية', level: 'B2'}
+                    ],
+                    projects: [
+                        {
+                            name: 'نظام إدارة المحتوى',
+                            description: 'نظام متكامل لإدارة محتوى المواقع الإلكترونية مع لوحة تحكم متطورة',
+                            date: '2022'
+                        }
+                    ],
+                    certificates: [
+                        {
+                            name: 'شهادة تطوير الويب المتقدم',
+                            issuer: 'منصة Udemy',
+                            date: '2021'
+                        }
+                    ]
+                },
+                'designer': {
+                    name: 'سارة عبدالله',
+                    jobTitle: 'مصممة جرافيك محترفة',
+                    email: 'sara@example.com',
+                    phone: '0556789123',
+                    address: 'جدة، المملكة العربية السعودية',
+                    about: 'مصممة جرافيك بخبرة 4 سنوات في تصميم الهويات البصرية والمواد التسويقية. متخصصة في التصميم الإبداعي الذي يجمع بين الجماليات والوظيفية.',
+                    experience: 'مصممة جرافيك في وكالة الإعلانات الحديثة (2019-2023), مصممة في شركة الإبداع (2017-2019)',
+                    skills: [
+                        {name: 'Adobe Photoshop', level: 5},
+                        {name: 'Adobe Illustrator', level: 5},
+                        {name: 'UI/UX Design', level: 4},
+                        {name: 'Typography', level: 4.5}
+                    ],
+                    languages: [
+                        {name: 'العربية', level: 'C2'},
+                        {name: 'الإنجليزية', level: 'C1'}
+                    ],
+                    projects: [
+                        {
+                            name: 'هوية بصرية لمطعم',
+                            description: 'تصميم هوية بصرية متكاملة لمطعم راقي يشمل الشعار والألوان والمواد التسويقية',
+                            date: '2021'
+                        }
+                    ],
+                    certificates: [
+                        {
+                            name: 'شهادة التصميم الجرافيكي المتقدم',
+                            issuer: 'منصة Coursera',
+                            date: '2020'
+                        }
+                    ]
+                }
+            };
+            
+            const example = examples[type];
+            if (!example) return;
+            
+            // تعبئة البيانات
+            document.getElementById('name').value = example.name;
+            document.getElementById('job-title').value = example.jobTitle;
+            document.getElementById('email').value = example.email;
+            document.getElementById('phone').value = example.phone;
+            document.getElementById('address').value = example.address;
+            document.getElementById('about').value = example.about;
+            document.getElementById('experience').value = example.experience;
+            
+            // تعبئة المهارات
+            skills = example.skills || [];
+            updateSkillsList();
+            
+            // تعبئة اللغات
+            languages = example.languages || [];
+            updateLanguagesList();
+            
+            // تعبئة المشاريع
+            projects = example.projects || [];
+            updateProjectsList();
+            
+            // تعبئة الشهادات
+            certificates = example.certificates || [];
+            updateCertificatesList();
+            
+            // تحديث المعاينة
+            updateCV();
+            
+            showAlert(`تم تحميل مثال ${type === 'developer' ? 'مبرمج ويب' : 'مصمم جرافيك'}`, 'success');
+        }
+        
+        // تحديث المعاينة عند تحميل الصفحة
+        window.onload = function() {
+            updateCV();
+            
+            // إضافة تأثيرات عند التحميل
+            document.querySelectorAll('.animate__animated').forEach(el => {
+                el.style.opacity = '0';
+                setTimeout(() => {
+                    el.style.opacity = '1';
+                }, 100);
+            });
+        };
+    </script>
+</body>
+</html>
